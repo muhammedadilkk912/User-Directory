@@ -18,32 +18,27 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const fetchUsers = async () => {
-      setError(false)
-      try {
-        setLoading(true)
-        const data = await getUsers();
-        console.log("data=", data);
-       const localUsers =JSON.parse(localStorage.getItem("items")) || [];
-       if(localUsers.length > 0){
+    setError(false);
+    try {
+      setLoading(true);
+      const data = await getUsers();
+      console.log("data=", data);
+      const localUsers = JSON.parse(localStorage.getItem("items")) || [];
+      if (localUsers.length > 0) {
         setUsers([...data, ...localUsers]);
-       }else{
-         setUsers(data);
-       }
-       
-      } catch (err) {
-        setError(true)
-        // setError("Something went wrong");
-      } finally {
-     setLoading(false);
+      } else {
+        setUsers(data);
       }
-    };
+    } catch (err) {
+      setError(true);
+      // setError("Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-
-
     fetchUsers();
   }, []);
-
-
 
   const filteredUsers = users.filter(
     (user) =>
@@ -51,7 +46,6 @@ const Home = () => {
       user.email.toLowerCase().includes(search.toLowerCase())
   );
 
-   
   if (loading) {
     return (
       <div className="flex flex-col min-h-screen items-center justify-center">
@@ -84,7 +78,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-screen">
       {/* header section */}
       <div className="border-b   px-4 h-14 sm:h-16 sm:px-20 border-gray-400">
         <div className="flex items-center   h-full gap-2">
@@ -99,7 +93,7 @@ const Home = () => {
         </div>
       </div>
       {/* body section start here */}
-      <div className="flex flex-col gap-5 mx-auto my-5 sm:mx-20">
+      <div className="flex flex-col flex-grow gap-5 mx-auto my-5 sm:mx-20">
         {showForm ? (
           <AddUserForm
             onSubmit={handleSubmit}
@@ -150,6 +144,12 @@ const Home = () => {
             )}
           </>
         )}
+        
+      </div>
+      {/* footer section */}
+       <div className="h-10 mt-auto w-full bg-neutral-200 flex justify-center items-center">
+        <p className="text-gray-400">© 2025 User Directory. All rights reserved.</p>
+
       </div>
     </div>
   );

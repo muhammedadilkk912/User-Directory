@@ -57,7 +57,7 @@ const AddUserForm = ({onClose,onSubmit}) => {
   <div className="w-full max-w-md flex flex-col gap-4">
     {/* Title */}
     <div className="text-center">
-      <h1 className="text-xl font-semibold text-gray-800">Add New User</h1>
+      <h1 className="text-2xl font-semibold text-gray-800">ADD NEW USER</h1>
       <p className="mt-1 text-sm text-gray-500">
         Fill in the details below to add a new user to the directory.
       </p>

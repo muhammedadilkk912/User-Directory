@@ -22,8 +22,8 @@ const UserList = ({users,open}) => {
       className="flex justify-between transition delay-100 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 items-center gap-10 px-4 py-3 rounded-lg bg-white-100 shadow-md "
     >
       <div className="flex flex-col">
-        <h3 className="font-semibold">{data?.name || "adil kk"}</h3>
-        <span className="text-sm text-gray-600">
+        <h3 className="text-sm sm:text-lg  font-semibold">{data?.name || "adil kk"}</h3>
+        <span className="text-sm text-gray-600 break-all sm:break-normal">
           {data?.email || "dsajjk"}
         </span>
         <span className="text-sm text-gray-600">
